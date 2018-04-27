@@ -3,6 +3,7 @@
 
 build/
 .vscode/
+libs/external/
 
 !*.cpp
 !*.cc
