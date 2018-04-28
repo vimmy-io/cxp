@@ -94,7 +94,7 @@ pull_new_repo() {
         git_url="git@github.com:${repo_name}.git"
     fi
 
-    echo "Cloning: ${repo_name}...."
+    echo "CLONING: ${repo_name}...."
     
     git clone ${git_url} ${repo_name}
 
@@ -109,7 +109,7 @@ pull_new_repo() {
 update_repo() {
     local repo_name=${1}
 
-    print_line "Updating ${repo_name}....."
+    print_line "UPDATING: ${repo_name}....."
 
     push_into_dir ${repo_name}
     git checkout master > /dev/null 2>&1

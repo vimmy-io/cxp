@@ -21,8 +21,9 @@ target_compile_options(compile-options-private
         /Za     # Disable language extensions
         /WX     # Warnings as errors
         /FA     # Generate asm
+        /permissive-               # Strict conformance                 
         /Fa${PROJECT_BINARY_DIR}/asm-output/        # Assembly location
         $<$<CONFIG:Debug>:/ZI>     # Edit and continue
-        $<$<CONFIG:Release>:/GS->     # No Buffer Security Checks
+        $<$<CONFIG:Release>:/GS->  # No Buffer Security Checks
 )
 endif()
