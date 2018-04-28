@@ -1,3 +1,5 @@
-add_subdirectory(engine/ engine)
-add_subdirectory(engine-utils/ engine-utils)
-add_subdirectory(engine-ui/ engine-ui)
+add_subdirectory(compile-options-private/)
+add_subdirectory(compile-options-public/)
+add_subdirectory(engine/)
+add_subdirectory(engine-utils/)
+add_subdirectory(engine-ui/)

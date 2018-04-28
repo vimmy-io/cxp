@@ -9,15 +9,18 @@ add_executable(engine-ui-exec
 )
 
 add_executable(cxp::engine-ui-exec
-    ALIAS engine-ui-exec
+    ALIAS
+        engine-ui-exec
 )
 
 target_include_directories(engine-ui-exec
     PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
 target_link_libraries(engine-ui-exec
     PUBLIC
-    cxp::engine-ui
+        cxp::engine-ui
+    PRIVATE
+        cxp::compile-options-private
 )
