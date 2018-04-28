@@ -11,6 +11,17 @@ if (PROJECT_ENABLE_BENCHMARKING)
     add_subdirectory(external/google/benchmark/ external/google/benchmark)
 endif()
 
+if (PROJECT_ENABLE_TESTING)
+    set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
+    set(BUILD_GTEST ON CACHE BOOL "" FORCE)
+    set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
+    set(INSTALL_GMOCK OFF CACHE BOOL "" FORCE)
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+    add_subdirectory(external/google/googletest/ external/google/googletest)
+endif()
+
+# Internal libraries
 add_subdirectory(compile-options-private/)
 add_subdirectory(compile-options-public/)
 add_subdirectory(engine/)
