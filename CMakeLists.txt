@@ -5,5 +5,8 @@ project(MainProjectName
     LANGUAGES CXX
 )
 
+option(PROJECT_ENABLE_BENCHMARKING "Build and link google-benchmark lib and executable" OFF)
+option(PROJECT_ENABLE_TESTING "Build and link google-test lib and executable" OFF)
+
 add_subdirectory(libs)
 add_subdirectory(src)
