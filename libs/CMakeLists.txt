@@ -14,6 +14,8 @@ if (PROJECT_ENABLE_BENCHMARKING)
         ALIAS
             benchmark
     )
+
+    set_property(TARGET benchmark PROPERTY FOLDER "external-libs")
 endif()
 
 if (PROJECT_ENABLE_TESTING)
@@ -29,12 +31,19 @@ if (PROJECT_ENABLE_TESTING)
         ALIAS
             gtest_main
     )
+
+    set_property(TARGET gtest_main PROPERTY FOLDER "external-libs")
+    set_property(TARGET gtest PROPERTY FOLDER "external-libs")
 endif()
 
 # Internal libraries
 add_subdirectory(compile-options-private/)
 add_subdirectory(compile-options-public/)
-add_subdirectory(engine/)
-add_subdirectory(engine-utils/)
-add_subdirectory(engine-ui/)
 
+add_subdirectory(engine/)
+set_property(TARGET engine PROPERTY FOLDER "libs")
+
+add_subdirectory(engine-utils/)
+
+add_subdirectory(engine-ui/)
+set_property(TARGET engine-ui PROPERTY FOLDER "libs")
