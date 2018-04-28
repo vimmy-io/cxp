@@ -9,6 +9,11 @@ if (PROJECT_ENABLE_BENCHMARKING)
     # set_option(BENCHMARK_USE_LIBCXX "Build and test using libc++ as the standard library." OFF)
     
     add_subdirectory(external/google/benchmark/ external/google/benchmark)
+
+    add_library(cxp::ext_google_benchmark
+        ALIAS
+            benchmark
+    )
 endif()
 
 if (PROJECT_ENABLE_TESTING)
@@ -19,6 +24,11 @@ if (PROJECT_ENABLE_TESTING)
     set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
     add_subdirectory(external/google/googletest/ external/google/googletest)
+
+    add_library(cxp::ext_google_test
+        ALIAS
+            gtest_main
+    )
 endif()
 
 # Internal libraries

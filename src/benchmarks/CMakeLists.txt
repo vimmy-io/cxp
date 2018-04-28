@@ -20,6 +20,6 @@ target_link_libraries(benchmarks
 if (MSVC)
     target_link_libraries(benchmarks
         PRIVATE
-            benchmark $<$<CONFIG:Release>:-LTCG>
+            cxp::ext_google_benchmark $<$<CONFIG:Release>:-LTCG>
     )
 endif()

@@ -16,5 +16,5 @@ target_link_libraries(tests
     INTERFACE
         cxp::compile-options-private
     PRIVATE
-        gtest_main
+        cxp::ext_google_test
 )
