@@ -16,12 +16,13 @@ if (MSVC)
 target_compile_options(compile-options-private
     INTERFACE
         /GR-    # Disable RTTI
-        /EH-    # Disable exception handling
+        #/EH-    # Disable exception handling
         /MP     # Multi-process compilation
         /Za     # Disable language extensions
         /WX     # Warnings as errors
         /FA     # Generate asm
         /Fa${PROJECT_BINARY_DIR}/asm-output/        # Assembly location
         $<$<CONFIG:Debug>:/ZI>     # Edit and continue
+        $<$<CONFIG:Release>:/GS->     # No Buffer Security Checks
 )
 endif()
