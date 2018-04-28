@@ -1,6 +1,6 @@
-#Contributing to the Repo
+# Contributing to the Repo
 
-Hi there, thank you for thinking of contributing. There are no formal set of guidelines, after all this is a very small and lightweight project.
+Thank you for thinking of contributing. There are no formal set of guidelines, after all this is a very small and lightweight project.
 
 Just make sure you clearly explain, either via GitHub comment or commit:
 - Why you've made the changes
