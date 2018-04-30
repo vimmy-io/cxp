@@ -136,3 +136,6 @@ do
 done
 
 pop_outof_dir ${external_libs_folder}
+
+print_line "Dependencies updated."
+print_line "Please clean and rerun your cmake config."
