@@ -37,8 +37,8 @@ if (PROJECT_ENABLE_TESTING)
 endif()
 
 # Internal libraries
-add_subdirectory(compile-options-private/)
-add_subdirectory(compile-options-public/)
+add_subdirectory(compile-interfaces/compile-options-private/)
+add_subdirectory(compile-interfaces/compile-options-public/)
 
 add_subdirectory(engine/)
 set_property(TARGET engine PROPERTY FOLDER "libs")
