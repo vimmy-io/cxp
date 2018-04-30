@@ -18,7 +18,7 @@ Firstly, modify the [.gitignore](/.gitignore) file to your requirements. Current
 
 ### Renaming Params
 Next rename some variables to reflect your project name, default configs etc:
-- [Library dependencies](/get_latest.deps.sh#L64) that get pulled into `libs/external`
+- [Library dependencies](/get_latest_deps.sh#L64) that get pulled into `libs/external`
 - Root Project Name in the [main CMakeLists.txt](/CMakeLists.txt#L3)
 - Root project [options](/CMakeLists.txt#L12-L14)
 - The [libraries](/libs/CMakeLists.txt) and [executables](src/CMakeLists.txt) that are being built
