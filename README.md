@@ -2,11 +2,6 @@
 
 A template project for creating a cross platform C++ CMake project using _modern_ CMake syntax and transitive dependencies.
 
-Things to change:
-- MainProjectName
-- Grep and sed PROJECT_ENABLE_BENCHMARKING & TESTS
-- Private and Public compiler options
-
 ## Getting Started
 - Run `get_latest_deps.sh` to pull down 3rd party dependencies from Github. Use `[-s|--ssh]` to use ssh.
 - `mkdir build && cd build`
