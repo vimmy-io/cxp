@@ -3,6 +3,8 @@ project(compile-options-private
     LANGUAGES CXX
 )
 
+option(PROJECT_USE_LIBCXX "Use clangs libcxx. Only works when using clang." OFF)
+
 add_library(compile-options-private
     INTERFACE
 )
@@ -22,7 +24,7 @@ if (MSVC)
             /WX     # Warnings as errors
             /FA     # Generate asm
             /permissive-               # Strict conformance                 
-            /Fa${PROJECT_BINARY_DIR}/asm-output/        # Assembly location
+            $<$<CONFIG:Release>:/Fa${PROJECT_BINARY_DIR}/asm-output/>        # Assembly location
             $<$<CONFIG:Debug>:/ZI>     # Edit and continue
             $<$<CONFIG:Release>:/GS->  # No Buffer Security Checks
     )
@@ -36,7 +38,15 @@ elseif(UNIX)
             -march=native
             -fno-exceptions
             -pedantic
-            -save-temps
+            $<$<CONFIG:Release>:-save-temps>
             $<$<CONFIG:RelWithDebInfo>:-fno-omit-frame-pointer>
     )
+
+endif()
+
+if (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") AND PROJECT_USE_LIBCXX)
+        target_compile_options(compile-options-private
+            INTERFACE
+                -stdlib=libc++
+        )
 endif()
