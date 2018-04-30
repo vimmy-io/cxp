@@ -22,4 +22,9 @@ if (MSVC)
         PRIVATE
             cxp::ext_google_benchmark $<$<CONFIG:Release>:-LTCG>
     )
+else()
+    target_link_libraries(benchmarks
+        PRIVATE
+            cxp::ext_google_benchmark
+    )
 endif()

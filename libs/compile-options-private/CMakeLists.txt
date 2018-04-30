@@ -13,17 +13,30 @@ add_library(cxp::compile-options-private
 )
 
 if (MSVC)
-target_compile_options(compile-options-private
-    INTERFACE
-        /GR-    # Disable RTTI
-        #/EH-    # Disable exception handling
-        /MP     # Multi-process compilation
-        /Za     # Disable language extensions
-        /WX     # Warnings as errors
-        /FA     # Generate asm
-        /permissive-               # Strict conformance                 
-        /Fa${PROJECT_BINARY_DIR}/asm-output/        # Assembly location
-        $<$<CONFIG:Debug>:/ZI>     # Edit and continue
-        $<$<CONFIG:Release>:/GS->  # No Buffer Security Checks
-)
+    target_compile_options(compile-options-private
+        INTERFACE
+            /GR-    # Disable RTTI
+            #/EH-    # Disable exception handling
+            /MP     # Multi-process compilation
+            /Za     # Disable language extensions
+            /WX     # Warnings as errors
+            /FA     # Generate asm
+            /permissive-               # Strict conformance                 
+            /Fa${PROJECT_BINARY_DIR}/asm-output/        # Assembly location
+            $<$<CONFIG:Debug>:/ZI>     # Edit and continue
+            $<$<CONFIG:Release>:/GS->  # No Buffer Security Checks
+    )
+elseif(UNIX)
+    target_compile_options(compile-options-private
+        INTERFACE
+            -fno-rtti
+            -flto
+            -Wall
+            -Werror
+            -march=native
+            -fno-exceptions
+            -pedantic
+            -save-temps
+            $<$<CONFIG:RelWithDebInfo>:-fno-omit-frame-pointer>
+    )
 endif()
