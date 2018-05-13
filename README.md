@@ -2,6 +2,8 @@
 
 A template project for creating a cross platform C++ CMake project using _modern_ CMake syntax and transitive dependencies.
 
+Checkout the [FAQ](/FAQ.md) if you've got questions.
+
 ## Getting Started
 - Run `get_latest_deps.sh` to pull down 3rd party dependencies from Github. Use `[-s|--ssh]` to use ssh.
 - `mkdir build && cd build`
@@ -22,6 +24,7 @@ Next rename some variables to reflect your project name, default configs etc:
 - Root Project Name in the [main CMakeLists.txt](/CMakeLists.txt#L3)
 - Root project [options](/CMakeLists.txt#L12-L14)
 - The [libraries](/libs/CMakeLists.txt) and [executables](src/CMakeLists.txt) that are being built
+- Change the compiler flags to your liking: `libs/compile-interfaces/**/CMakeLists.txt`
 
 ## Project Structure
 
