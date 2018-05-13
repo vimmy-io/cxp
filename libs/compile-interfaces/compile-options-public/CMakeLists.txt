@@ -24,3 +24,21 @@ elseif (UNIX)
             -std=c++17
     )
 endif()
+
+install(
+    TARGETS
+        compile-options-public
+    EXPORT
+        CompileOptionsPublicTargets
+)
+
+install(
+    EXPORT
+        CompileOptionsPublicTargets
+    FILE
+        CompileOptionsPublicTargets.cmake
+    NAMESPACE
+        cxp::
+    DESTINATION
+        lib/cmake/CompileOptionsPublicTargets
+)

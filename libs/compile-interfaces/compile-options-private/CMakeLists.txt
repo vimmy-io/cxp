@@ -50,3 +50,21 @@ if (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") AND PROJECT_USE_LIBCXX)
                 -stdlib=libc++
         )
 endif()
+
+install(
+    TARGETS
+        compile-options-private
+    EXPORT
+        CompileOptionsPrivateTargets
+)
+
+install(
+    EXPORT
+        CompileOptionsPrivateTargets
+    FILE
+        CompileOptionsPrivateTargets.cmake
+    NAMESPACE
+        cxp::
+    DESTINATION
+        lib/cmake/CompileOptionsPrivateTargets
+)
