@@ -1,25 +1,25 @@
-project(compile-options-public
+project(cxp-compile-options-public
     VERSION 0.0
     LANGUAGES CXX
 )
 
-add_library(compile-options-public
+add_library(cxp-compile-options-public
     INTERFACE
 )
 
 add_library(cxp::compile-options-public
     ALIAS
-        compile-options-public
+        cxp-compile-options-public
 )
 
 if (MSVC)
-    target_compile_options(compile-options-public
+    target_compile_options(cxp-compile-options-public
         INTERFACE
             /Oi         # Enable intrinsic functions
             /std:c++17  # Enable C++ 17 features
     )
 elseif (UNIX)
-    target_compile_options(compile-options-public
+    target_compile_options(cxp-compile-options-public
         INTERFACE
             -std=c++17
     )
@@ -27,18 +27,18 @@ endif()
 
 install(
     TARGETS
-        compile-options-public
+        cxp-compile-options-public
     EXPORT
-        CompileOptionsPublicTargets
+        CxpCompileOptionsPublicTargets
 )
 
 install(
     EXPORT
-        CompileOptionsPublicTargets
+        CxpCompileOptionsPublicTargets
     FILE
-        CompileOptionsPublicTargets.cmake
+        CxpCompileOptionsPublicTargets.cmake
     NAMESPACE
         cxp::
     DESTINATION
-        lib/cmake/CompileOptionsPublicTargets
+        lib/cmake/CxpCompileOptionsPublicTargets
 )

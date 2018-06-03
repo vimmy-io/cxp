@@ -1,12 +1,14 @@
 # External libraries
-if (PROJECT_ENABLE_BENCHMARKING)
+if (PROJECT_ENABLE_BENCHMARKING AND NOT TARGET benchmark)
     set(BENCHMARK_ENABLE_TESTING OFF CACHE BOOL "" FORCE)
     set(BENCHMARK_ENABLE_GTEST_TESTS OFF CACHE BOOL "" FORCE)
     set(BENCHMARK_ENABLE_EXCEPTIONS OFF CACHE BOOL "" FORCE)
     set(BENCHMARK_ENABLE_LTO ON CACHE BOOL "" FORCE)
     set(BENCHMARK_ENABLE_INSTALL OFF CACHE BOOL "" FORCE)
 
-    # set_option(BENCHMARK_USE_LIBCXX "Build and test using libc++ as the standard library." OFF)
+    if (PROJECT_USE_LIBCXX)
+        set_option(BENCHMARK_USE_LIBCXX "Build and test using libc++ as the standard library." OFF)
+    endif()
     
     add_subdirectory(external/google/benchmark/ external/google/benchmark)
 
@@ -18,7 +20,7 @@ if (PROJECT_ENABLE_BENCHMARKING)
     set_property(TARGET benchmark PROPERTY FOLDER "external-libs")
 endif()
 
-if (PROJECT_ENABLE_TESTING)
+if (PROJECT_ENABLE_TESTING AND NOT TARGET gtest_main)
     set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
     set(BUILD_GTEST ON CACHE BOOL "" FORCE)
     set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)

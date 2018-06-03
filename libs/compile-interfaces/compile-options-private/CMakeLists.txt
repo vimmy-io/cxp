@@ -1,21 +1,21 @@
-project(compile-options-private
+project(cxp-compile-options-private
     VERSION 0.0
     LANGUAGES CXX
 )
 
 option(PROJECT_USE_LIBCXX "Use clangs libcxx. Only works when using clang." OFF)
 
-add_library(compile-options-private
+add_library(cxp-compile-options-private
     INTERFACE
 )
 
 add_library(cxp::compile-options-private
     ALIAS
-        compile-options-private
+        cxp-compile-options-private
 )
 
 if (MSVC)
-    target_compile_options(compile-options-private
+    target_compile_options(cxp-compile-options-private
         INTERFACE
             /GR-    # Disable RTTI
             #/EH-    # Disable exception handling
@@ -29,7 +29,7 @@ if (MSVC)
             $<$<CONFIG:Release>:/GS->  # No Buffer Security Checks
     )
 elseif(UNIX)
-    target_compile_options(compile-options-private
+    target_compile_options(cxp-compile-options-private
         INTERFACE
             -fno-rtti
             -flto
@@ -45,7 +45,7 @@ elseif(UNIX)
 endif()
 
 if (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") AND PROJECT_USE_LIBCXX)
-        target_compile_options(compile-options-private
+        target_compile_options(cxp-compile-options-private
             INTERFACE
                 -stdlib=libc++
         )
@@ -53,18 +53,18 @@ endif()
 
 install(
     TARGETS
-        compile-options-private
+        cxp-compile-options-private
     EXPORT
-        CompileOptionsPrivateTargets
+        CxpCompileOptionsPrivateTargets
 )
 
 install(
     EXPORT
-        CompileOptionsPrivateTargets
+        CxpCompileOptionsPrivateTargets
     FILE
-        CompileOptionsPrivateTargets.cmake
+        CxpCompileOptionsPrivateTargets.cmake
     NAMESPACE
         cxp::
     DESTINATION
-        lib/cmake/CompileOptionsPrivateTargets
+        lib/cmake/CxpCompileOptionsPrivateTargets
 )
