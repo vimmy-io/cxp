@@ -7,7 +7,7 @@ if (PROJECT_ENABLE_BENCHMARKING AND NOT TARGET benchmark)
     set(BENCHMARK_ENABLE_INSTALL OFF CACHE BOOL "" FORCE)
 
     if (PROJECT_USE_LIBCXX)
-        set_option(BENCHMARK_USE_LIBCXX "Build and test using libc++ as the standard library." OFF)
+        set(BENCHMARK_USE_LIBCXX ON CACHE BOOL "" FORCE)
     endif()
     
     add_subdirectory(external/google/benchmark/ external/google/benchmark)
