@@ -26,6 +26,8 @@ Next rename some variables to reflect your project name, default configs etc:
 - The [libraries](/libs/CMakeLists.txt) and [executables](src/CMakeLists.txt) that are being built
 - Change the compiler flags to your liking: `libs/compile-interfaces/**/CMakeLists.txt`
 
+> Note: Essentially anything with the `cxp` prefix may require changing to your liking.
+
 ## Project Structure
 
 ```
