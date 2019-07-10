@@ -23,4 +23,5 @@ target_link_libraries(engine-ui-exec
         cxp::engine-ui
     PRIVATE
         cxp::compile-options-private
+        cxp::engine-build
 )

@@ -47,5 +47,7 @@ set_property(TARGET engine PROPERTY FOLDER "libs")
 
 add_subdirectory(engine-utils/)
 
+add_subdirectory(prebuilt/)
+
 add_subdirectory(engine-ui/)
 set_property(TARGET engine-ui PROPERTY FOLDER "libs")
